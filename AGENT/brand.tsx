@@ -46,7 +46,7 @@ export const tokens = {
 
   fonts: {
     display: "'DM Serif Display', 'Libre Baskerville', Georgia, serif",
-    body: "'Lora', 'Source Serif 4', Georgia, serif",
+    body: "'Lora', &apos;source Serif 4', Georgia, serif",
     mono: "'JetBrains Mono', 'Fira Code', 'Courier New', monospace",
     handwritten: "'Caveat', 'Indie Flower', cursive",
   },
@@ -98,7 +98,7 @@ export const globalCSS = `
 
     /* Typography */
     --font-display:     'DM Serif Display', 'Libre Baskerville', Georgia, serif;
-    --font-body:        'Lora', 'Source Serif 4', Georgia, serif;
+    --font-body:        'Lora', &apos;source Serif 4', Georgia, serif;
     --font-mono:        'JetBrains Mono', 'Fira Code', monospace;
     --font-handwritten: 'Caveat', 'Indie Flower', cursive;
 
@@ -174,7 +174,7 @@ export const globalCSS = `
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles=&apos;stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
     opacity: 0.035;
     pointer-events: none;
     border-radius: inherit;
@@ -926,9 +926,9 @@ export default function BrandReference() {
                   maxWidth: "640px",
                 }}
               >
-                This is body text, rendered in Lora. It's designed to be read,
-                not skimmed. Which is why it has good line height and a serif
-                that makes long-form content feel like something worth
+                This is body text, rendered in Lora. It&apos;s designed to be
+                read, not skimmed. Which is why it has good line height and a
+                serif that makes long-form content feel like something worth
                 finishing. Unlike most SaaS landing pages.
               </p>
             </div>
@@ -1181,14 +1181,14 @@ export default function BrandReference() {
           >
             <StickyNote color="yellow" rotate={-3}>
               Ship it. You can fix it later. <br />
-              (You won't fix it later.)
+              (You won&apos;t fix it later.)
             </StickyNote>
             <StickyNote color="pink" rotate={2}>
               TODO: make this look intentional
             </StickyNote>
             <StickyNote color="blue" rotate={-1}>
-              "Perfect is the enemy of shipped" <br />— someone who shipped
-              something broken
+              &quot;Perfect is the enemy of shipped&quot; <br />— someone who
+              shipped something broken
             </StickyNote>
             <StickyNote color="green" rotate={3}>
               ✓ Made the deadline <br />✓ Technically
@@ -1341,7 +1341,7 @@ export default function BrandReference() {
               letterSpacing: "0.05em",
             }}
           >
-            paper-ui © {new Date().getFullYear()} — use it, don't abuse it
+            paper-ui © {new Date().getFullYear()} — use it, don&apos;t abuse it
           </div>
         </footer>
       </main>

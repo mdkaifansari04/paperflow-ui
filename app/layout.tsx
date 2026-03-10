@@ -3,9 +3,11 @@ import {
   DM_Serif_Display,
   Lora,
   JetBrains_Mono,
-  Caveat,
-} from 'next/font/google'
+  Caveat, Geist } from 'next/font/google'
 import './globals.css'
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const dmSerifDisplay = DM_Serif_Display({
   variable: '--font-display',
@@ -52,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", geist.variable)}>
       <body
         className={[
           dmSerifDisplay.variable,
