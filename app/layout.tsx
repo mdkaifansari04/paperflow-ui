@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 // FONT DECLARATIONS
 // Each font has a CSS variable so you can reference it anywhere:
 //   font-family: var(--font-splash)
-//   className="font-italiana"  ← via tailwind.config.ts
+//   className="font-italiana"  ← via Tailwind v4 utilities in app/globals.css
 // ─────────────────────────────────────────────────────────────────────────────
 
 /** Hero display — used ONCE per page. The loud one. */

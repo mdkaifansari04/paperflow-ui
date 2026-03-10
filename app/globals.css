@@ -1,66 +1,137 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Splash&family=Italiana&family=Istok+Web:wght@400;700&family=Inter:wght@300;400;600;700&family=Major+Mono+Display&family=Saira+Extra+Condensed:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Comic+Neue:ital,wght@0,400;1,400&display=swap');
 
-body {
-  background-color: var(--background);
-  font-family: 'Istok Web', sans-serif;
-
-  /* Paper grid background */
-  background-image:
-    linear-gradient(rgba(28, 28, 28, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(28, 28, 28, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
+/* Tailwind v4 source scanning (equivalent to old content[] config) */
+@source "../pages/**/*.{js,ts,jsx,tsx,mdx}";
+@source "../components/**/*.{js,ts,jsx,tsx,mdx}";
+@source "./**/*.{js,ts,jsx,tsx,mdx}";
 
 :root {
   --background: oklch(96% 0.015 75);
-  /* #F5F0E8 paper-base */
   --foreground: oklch(15% 0.025 55);
-  /* #1A1209 ink-black */
 
   --card: oklch(97% 0.012 75);
-  /* #FAF8F3 paper-light */
   --card-foreground: oklch(15% 0.025 55);
 
   --popover: oklch(97% 0.012 75);
   --popover-foreground: oklch(15% 0.025 55);
 
   --primary: oklch(15% 0.025 55);
-  /* ink-black — buttons etc */
   --primary-foreground: oklch(96% 0.015 75);
-  /* paper-base */
 
   --secondary: oklch(91% 0.025 75);
-  /* paper-aged #EDE4D0 */
   --secondary-foreground: oklch(15% 0.025 55);
 
   --muted: oklch(91% 0.025 75);
   --muted-foreground: oklch(55% 0.03 60);
-  /* ink-medium */
 
   --accent: oklch(83% 0.12 85);
-  /* accent-yellow #F2C94C */
   --accent-foreground: oklch(15% 0.025 55);
 
   --destructive: oklch(58% 0.18 25);
-  /* accent-red #E05A4D */
   --destructive-foreground: oklch(97% 0.012 75);
 
   --border: oklch(15% 0.025 55);
-  /* ink-black — hard borders */
   --input: oklch(15% 0.025 55);
   --ring: oklch(83% 0.12 85);
-  /* yellow ring on focus */
 
   --radius: 0rem;
-  /* NO rounding. Paper is square. */
+}
+
+@theme {
+  /* Colors */
+  --color-paper-base: #f5f0e8;
+  --color-paper-light: #faf8f3;
+  --color-paper-aged: #ede4d0;
+  --color-paper-cream: #fff9f0;
+
+  --color-ink-black: #1a1209;
+  --color-ink-dark: #2c2416;
+  --color-ink-medium: #5c4f3a;
+  --color-ink-light: #9b8e7a;
+  --color-ink-faint: #c8bfb0;
+
+  --color-accent-yellow: #f2c94c;
+  --color-accent-red: #e05a4d;
+  --color-accent-green: #4caf7d;
+  --color-accent-blue: #4a90d9;
+  --color-accent-orange: #e8833a;
+
+  /* Shadows */
+  --shadow-lift-1: 3px 3px 0 #1a1209;
+  --shadow-lift-2: 5px 5px 0 #1a1209;
+  --shadow-lift-3: 8px 8px 0 #1a1209;
+  --shadow-lift-4: 12px 12px 0 #1a1209;
+  --shadow-accent: 4px 4px 0 #f2c94c;
+  --shadow-soft: 4px 4px 0 rgba(26, 18, 9, 0.15);
+
+  /* Border radius */
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Typography scale */
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.75rem;
+  --text-md: 1.125rem;
+  --text-md--line-height: 1.75rem;
+  --text-lg: 1.25rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.5rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 2rem;
+  --text-2xl--line-height: 2.25rem;
+  --text-3xl: 2.5rem;
+  --text-3xl--line-height: 2.75rem;
+  --text-4xl: 3.5rem;
+  --text-4xl--line-height: 1.1;
+  --text-5xl: 5rem;
+  --text-5xl--line-height: 1;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-istok-web), sans-serif;
+  --font-mono: var(--font-major-mono-display), monospace;
+}
+
+/* Font utilities mirroring old tailwind.config fontFamily keys */
+@utility font-splash {
+  font-family: var(--font-splash), serif;
+}
+
+@utility font-italiana {
+  font-family: var(--font-italiana), serif;
+}
+
+@utility font-istok-web {
+  font-family: var(--font-istok-web), sans-serif;
+}
+
+@utility font-inter {
+  font-family: var(--font-inter), sans-serif;
+}
+
+@utility font-major-mono-display {
+  font-family: var(--font-major-mono-display), monospace;
+}
+
+@utility font-saira-extra-condensed {
+  font-family: var(--font-saira-extra-condensed), sans-serif;
+}
+
+@utility font-bricolage-grotesque {
+  font-family: var(--font-bricolage-grotesque), sans-serif;
+}
+
+@utility font-comic-neue {
+  font-family: var(--font-comic-neue), cursive;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -73,5 +144,10 @@ body {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-istok-web), sans-serif;
+
+  background-image:
+    linear-gradient(rgb(28 28 28 / 5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(28 28 28 / 5%) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
