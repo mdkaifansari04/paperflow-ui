@@ -1,8 +1,59 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Splash&family=Italiana&family=Istok+Web:wght@400;700&family=Inter:wght@300;400;600;700&family=Major+Mono+Display&family=Saira+Extra+Condensed:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Comic+Neue:ital,wght@0,400;1,400&display=swap');
+
+body {
+  background-color: var(--background);
+  font-family: 'Istok Web', sans-serif;
+
+  /* Paper grid background */
+  background-image:
+    linear-gradient(rgba(28, 28, 28, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 28, 28, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: oklch(96% 0.015 75);
+  /* #F5F0E8 paper-base */
+  --foreground: oklch(15% 0.025 55);
+  /* #1A1209 ink-black */
+
+  --card: oklch(97% 0.012 75);
+  /* #FAF8F3 paper-light */
+  --card-foreground: oklch(15% 0.025 55);
+
+  --popover: oklch(97% 0.012 75);
+  --popover-foreground: oklch(15% 0.025 55);
+
+  --primary: oklch(15% 0.025 55);
+  /* ink-black — buttons etc */
+  --primary-foreground: oklch(96% 0.015 75);
+  /* paper-base */
+
+  --secondary: oklch(91% 0.025 75);
+  /* paper-aged #EDE4D0 */
+  --secondary-foreground: oklch(15% 0.025 55);
+
+  --muted: oklch(91% 0.025 75);
+  --muted-foreground: oklch(55% 0.03 60);
+  /* ink-medium */
+
+  --accent: oklch(83% 0.12 85);
+  /* accent-yellow #F2C94C */
+  --accent-foreground: oklch(15% 0.025 55);
+
+  --destructive: oklch(58% 0.18 25);
+  /* accent-red #E05A4D */
+  --destructive-foreground: oklch(97% 0.012 75);
+
+  --border: oklch(15% 0.025 55);
+  /* ink-black — hard borders */
+  --input: oklch(15% 0.025 55);
+  --ring: oklch(83% 0.12 85);
+  /* yellow ring on focus */
+
+  --radius: 0rem;
+  /* NO rounding. Paper is square. */
 }
 
 @theme inline {
