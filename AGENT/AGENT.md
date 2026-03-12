@@ -2,7 +2,7 @@
 
 ## Big Idea
 Paperflow UI is a copy-paste component library with a warm editorial feel.
-The system should look crafted, readable, and human.
+    The system should look crafted, readable, and human.
 
 ## Typography System
 - `font-display`: 'DM Serif Display', Georgia, serif

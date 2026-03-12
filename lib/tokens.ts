@@ -31,25 +31,21 @@ export const shadows = {
 } as const
 
 export const fonts = {
-  splash: 'var(--font-splash)',
-  italiana: 'var(--font-italiana)',
-  'istok-web': 'var(--font-istok-web)',
-  inter: 'var(--font-inter)',
-  'major-mono-display': 'var(--font-major-mono-display)',
-  'saira-extra-condensed': 'var(--font-saira-extra-condensed)',
-  'bricolage-grotesque': 'var(--font-bricolage-grotesque)',
-  'comic-neue': 'var(--font-comic-neue)',
+  display: 'var(--font-display)',
+  body: 'var(--font-body)',
+  mono: 'var(--font-mono)',
+  handwritten: 'var(--font-handwritten)',
 } as const
 
 export const motion = {
   duration: {
-    fast: '150ms',
-    base: '220ms',
-    slow: '320ms',
+    fast: '120ms',
+    base: '200ms',
+    slow: '350ms',
   },
   easing: {
-    paper: 'cubic-bezier(0.2, 0.9, 0.25, 1)',
-    bounce: 'cubic-bezier(0.22, 1.15, 0.3, 1)',
+    paper: 'cubic-bezier(0.16, 1, 0.3, 1)',
+    bounce: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
   },
 } as const
 
