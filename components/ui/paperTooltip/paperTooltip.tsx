@@ -12,6 +12,7 @@ export interface PaperTooltipProps {
 const PaperTooltip = React.forwardRef<HTMLSpanElement, PaperTooltipProps>(
   ({ content, children, className }, ref) => {
     const [open, setOpen] = React.useState(false)
+    const tooltipId = React.useId()
 
     return (
       <span
@@ -21,16 +22,29 @@ const PaperTooltip = React.forwardRef<HTMLSpanElement, PaperTooltipProps>(
         onMouseLeave={() => setOpen(false)}
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
+        onKeyDown={(event) => {
+          if (event.key === 'Escape') {
+            setOpen(false)
+          }
+        }}
       >
-        {children}
-        {open ? (
-          <span className="absolute left-1/2 top-full z-20 mt-2 -translate-x-1/2">
-            <span className="relative block border border-ink-faint bg-ink-black px-3 py-1.5 font-mono text-xs text-paper-base shadow-lift-2">
-              {content}
-              <span className="absolute -top-[6px] left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-l border-t border-ink-faint bg-ink-black" />
-            </span>
+        <span aria-describedby={tooltipId}>{children}</span>
+        <span
+          id={tooltipId}
+          role="tooltip"
+          aria-hidden={!open}
+          className={cn(
+            'pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-max max-w-[260px] -translate-x-1/2',
+            'transition-all duration-150 ease-paper',
+            open ? 'translate-y-0 opacity-100' : '-translate-y-1 opacity-0'
+          )}
+        >
+          <span className="relative block border-2 border-ink-faint bg-ink-black px-3 py-2 font-mono text-xs tracking-[0.02em] text-paper-base shadow-lift-2">
+            <span className="block leading-relaxed">{content}</span>
+            <span className="absolute -top-[7px] left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-l-2 border-t-2 border-ink-faint bg-ink-black" />
+            <span className="pointer-events-none absolute inset-0 border border-paper-base/10" />
           </span>
-        ) : null}
+        </span>
       </span>
     )
   }

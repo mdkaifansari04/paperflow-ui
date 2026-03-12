@@ -3,7 +3,7 @@ import Link from 'next/link'
 export function Footer() {
   return (
     <footer className="border-t-4 border-ink-black bg-paper-light">
-      <div className="mx-auto max-w-6xl px-6 py-8 md:px-10">
+      <div className="w-full px-4 py-8 md:px-6 lg:px-8">
         <div className="flex flex-col gap-3">
           <Link href="/" className="font-display text-3xl leading-none">
             Paperflow UI

@@ -41,7 +41,7 @@ export default async function ComponentDetailPage({ params }: ComponentDetailPag
   const code = await getComponentCode(definition.filePath)
 
   return (
-    <article className="space-y-12">
+    <article className="min-w-0 max-w-full space-y-12">
       <header className="space-y-3">
         <p className="font-mono text-xs uppercase tracking-widest text-ink-light">
           Components / {component.name}
@@ -58,7 +58,7 @@ export default async function ComponentDetailPage({ params }: ComponentDetailPag
 
       <div className="border-t-2 border-ink-black" />
 
-      <section className="space-y-4">
+      <section className="min-w-0 max-w-full space-y-4">
         <h2 className="font-display text-2xl text-ink-black underline decoration-ink-black underline-offset-4">
           Preview
         </h2>
@@ -120,7 +120,7 @@ export default async function ComponentDetailPage({ params }: ComponentDetailPag
         <PropsTable rows={definition.props} />
       </section>
 
-      <section className="space-y-6">
+      <section className="min-w-0 max-w-full space-y-6">
         <h2 className="font-display text-2xl text-ink-black underline decoration-ink-black underline-offset-4">
           Examples
         </h2>

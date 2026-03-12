@@ -13,19 +13,20 @@ const PaperCheckbox = React.forwardRef<HTMLInputElement, PaperCheckboxProps>(
 
     return (
       <label htmlFor={inputId} className="flex items-start gap-2.5">
-        <span className="relative mt-0.5 inline-flex h-4 w-4 items-center justify-center">
-          <input
-            ref={ref}
-            id={inputId}
-            type="checkbox"
-            className={cn(
-              'peer h-4 w-4 appearance-none rounded-none border-2 border-ink-black bg-paper-cream',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-highlight-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-paper-base',
-              'checked:bg-ink-black checked:after:absolute checked:after:text-paper-base checked:after:content-["✓"]',
-              className
-            )}
-            {...props}
-          />
+        <input ref={ref} id={inputId} type="checkbox" className="peer sr-only" {...props} />
+        <span
+          className={cn(
+            'mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-none border-2 border-ink-black bg-paper-cream',
+            'transition-colors duration-150 ease-paper',
+            'peer-focus-visible:ring-2 peer-focus-visible:ring-highlight-yellow peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-paper-base',
+            'peer-checked:bg-ink-black',
+            className
+          )}
+          aria-hidden="true"
+        >
+          <span className="translate-y-[-0.5px] text-[11px] leading-none text-paper-base opacity-0 transition-opacity peer-checked:opacity-100">
+            ✓
+          </span>
         </span>
         {(label || hint) && (
           <span className="grid gap-0.5">

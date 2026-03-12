@@ -254,7 +254,7 @@ export const componentDocDefinitions: Record<string, ComponentDocDefinition> = {
     ],
   },
   'paper-select': {
-    wittyLine: '← menus can be calm and still unmistakable.',
+    wittyLine: '↗ menus can be calm and still unmistakable.',
     filePath: 'components/ui/paperSelect/paperSelect.tsx',
     barrelPath: 'components/ui/paperSelect/index.ts',
     masterExport: "export * from './paperSelect'",

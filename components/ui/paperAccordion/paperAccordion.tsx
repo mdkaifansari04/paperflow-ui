@@ -37,8 +37,14 @@ const PaperAccordion = React.forwardRef<HTMLDivElement, PaperAccordionProps>(
                 <span className="font-body font-medium">{item.title}</span>
                 <span className={cn('text-ink-medium transition-transform duration-200', open && 'rotate-180')}>⌄</span>
               </button>
-              <div className={cn('grid transition-all duration-200', open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]')}>
-                <div className="overflow-hidden pb-4 font-body text-sm leading-7 text-ink-medium">{item.content}</div>
+
+              <div
+                className={cn(
+                  'grid overflow-hidden transition-all duration-200 ease-paper',
+                  open ? 'grid-rows-[1fr] pb-4 pr-2 opacity-100' : 'grid-rows-[0fr] pb-0 opacity-0'
+                )}
+              >
+                <div className="min-h-0 font-body text-sm leading-7 text-ink-medium">{item.content}</div>
               </div>
             </section>
           )

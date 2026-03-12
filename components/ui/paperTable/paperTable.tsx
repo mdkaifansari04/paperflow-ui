@@ -18,14 +18,21 @@ function PaperTableInner<T extends Record<string, React.ReactNode>>(
   ref: React.ForwardedRef<HTMLTableElement>
 ) {
   return (
-    <div className="overflow-x-auto border-2 border-ink-black">
-      <table ref={ref} className={cn('w-full border-collapse font-body text-sm text-ink-medium', className)} {...props}>
+    <div className="overflow-x-auto border-2 border-ink-black bg-paper-base shadow-soft">
+      <table
+        ref={ref}
+        className={cn('w-full min-w-[620px] border-collapse font-body text-sm text-ink-medium', className)}
+        {...props}
+      >
         <thead>
-          <tr className="border-b-2 border-ink-black bg-paper-light">
+          <tr className="border-b-2 border-ink-black bg-paper-aged">
             {columns.map((column) => (
               <th
                 key={String(column.key)}
-                className={cn('px-4 py-3 text-left font-mono text-xs uppercase tracking-wider text-ink-light', column.className)}
+                className={cn(
+                  'border-r border-ink-faint px-4 py-3 text-left font-mono text-xs uppercase tracking-wider text-ink-light last:border-r-0',
+                  column.className
+                )}
               >
                 {column.header}
               </th>
@@ -34,9 +41,12 @@ function PaperTableInner<T extends Record<string, React.ReactNode>>(
         </thead>
         <tbody>
           {rows.map((row, rowIndex) => (
-            <tr key={rowIndex} className="border-b border-ink-faint transition-colors hover:bg-paper-aged/50 last:border-b-0">
+            <tr
+              key={rowIndex}
+              className="border-b border-ink-faint transition-colors duration-150 hover:bg-paper-aged/55 last:border-b-0"
+            >
               {columns.map((column) => (
-                <td key={String(column.key)} className="px-4 py-3">
+                <td key={String(column.key)} className="border-r border-ink-faint px-4 py-3 align-top last:border-r-0">
                   {row[column.key]}
                 </td>
               ))}
