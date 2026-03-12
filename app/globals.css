@@ -217,6 +217,16 @@
   min-height: 100vh;
 }
 
+@keyframes paperPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
 * {
   border-color: var(--border);
 }

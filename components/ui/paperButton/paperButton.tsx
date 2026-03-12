@@ -1,32 +1,44 @@
 'use client'
 
+/**
+ * paperButton.tsx
+ *
+ * Part of Paperflow UI — Paper Design System
+ * https://paperflow.dev/docs/components/paper-button
+ *
+ * Copy this entire file to: components/ui/paperButton/paperButton.tsx
+ */
+
 import * as React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const paperButtonVariants = cva(
   [
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap border border-ink-black',
-    'font-body font-semibold leading-none transition-all duration-150 ease-paper',
-    'hover:-translate-x-px hover:-translate-y-px active:translate-x-0 active:translate-y-0',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-paper-base',
+    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none',
+    'font-body font-medium border-2 border-ink-black',
+    'transition-all duration-150 ease-paper',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-highlight-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-paper-base',
     'disabled:pointer-events-none disabled:opacity-40',
   ],
   {
     variants: {
       variant: {
         primary:
-          'bg-ink-black text-paper-base shadow-accent hover:shadow-[5px_5px_0px_var(--color-accent-yellow)]',
-        secondary: 'bg-paper-base text-ink-black shadow-lift-1 hover:shadow-lift-2',
+          'bg-ink-black text-paper-base shadow-accent hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#F2C94C] active:translate-x-0 active:translate-y-0 active:shadow-[2px_2px_0px_#F2C94C]',
+        secondary:
+          'bg-paper-base text-ink-black shadow-lift-1 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-lift-2 active:translate-x-0 active:translate-y-0 active:shadow-[2px_2px_0px_#1A1209]',
+        outline:
+          'bg-transparent text-ink-black shadow-none hover:bg-paper-aged hover:shadow-soft active:translate-x-0 active:translate-y-0',
         ghost:
-          'border-transparent bg-transparent text-ink-dark underline underline-offset-4 shadow-none hover:text-ink-black hover:bg-paper-light',
-        danger: 'bg-highlight-red text-paper-base shadow-lift-1 hover:shadow-lift-2',
-        outline: 'bg-transparent text-ink-black shadow-none hover:bg-paper-aged',
+          'border-transparent bg-transparent text-ink-black underline underline-offset-4 shadow-none hover:text-ink-medium active:translate-x-0 active:translate-y-0',
+        danger:
+          'bg-accent-red text-paper-light shadow-lift-1 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-lift-2 active:translate-x-0 active:translate-y-0 active:shadow-[2px_2px_0px_#1A1209]',
       },
       size: {
-        sm: 'h-8 px-3 text-xs',
-        md: 'h-10 px-4 text-sm',
-        lg: 'h-12 px-6 text-base',
+        sm: 'px-3 py-1.5 text-sm',
+        md: 'px-5 py-2.5 text-base',
+        lg: 'px-7 py-3.5 text-md',
       },
     },
     defaultVariants: {
@@ -45,13 +57,19 @@ export interface PaperButtonProps
   fullWidth?: boolean
 }
 
-const LoadingDots = () => (
-  <span className="inline-flex items-center gap-1" aria-hidden="true">
-    <span className="h-1 w-1 rounded-full bg-current animate-bounce" />
-    <span className="h-1 w-1 rounded-full bg-current animate-bounce [animation-delay:120ms]" />
-    <span className="h-1 w-1 rounded-full bg-current animate-bounce [animation-delay:240ms]" />
-  </span>
-)
+function LoadingDots() {
+  return (
+    <span className="flex items-center gap-1" aria-hidden="true">
+      {[0, 1, 2].map((dot) => (
+        <span
+          key={dot}
+          className="h-1 w-1 animate-bounce rounded-full bg-current"
+          style={{ animationDelay: `${dot * 150}ms` }}
+        />
+      ))}
+    </span>
+  )
+}
 
 const PaperButton = React.forwardRef<HTMLButtonElement, PaperButtonProps>(
   (
